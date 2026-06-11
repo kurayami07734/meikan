@@ -1,0 +1,17 @@
+{
+    "name": "Aditya Ghidora",
+    "headline": "Software Engineer",
+    "subheadline": "Backend systems, cloud infrastructure, and developer tooling",
+    "location": "Delhi, India",
+    "bio": "I enjoy understanding how systems work under the hood and building tools that make developers more productive. Outside of work, you'll usually find me exploring Linux, experimenting with self-hosted infrastructure, or diving into a new game.",
+    "links": [
+        {
+            "label": "GitHub",
+            "url": "https://github.com/kurayami07734"
+        },
+        {
+            "label": "LinkedIn",
+            "url": "https://linkedin.com/in/aditya-ghidora"
+        }
+    ]
+}
