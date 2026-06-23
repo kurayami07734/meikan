@@ -4,7 +4,7 @@ from fastapi import HTTPException
 from fastapi.responses import Response
 from fastapi.routing import APIRouter
 
-from app.schema.static import Profile, Project
+from app.schema.static import Hobby, Profile, Project
 from app.utils import load_json_file, static_json_endpoint
 
 router = APIRouter(tags=["Static"])
@@ -25,6 +25,15 @@ router.add_api_route(
     summary="List project information",
     description="Returns the owner's projects.",
     response_model=list[Project],
+)
+
+router.add_api_route(
+    "/hobbies",
+    static_json_endpoint("hobbies.json"),
+    methods=["GET"],
+    summary="List hobby information",
+    description="Returns the owner's hobbies.",
+    response_model=list[Hobby],
 )
 
 

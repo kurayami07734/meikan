@@ -1,6 +1,6 @@
 from httpx import AsyncClient
 
-from app.schema.static import Profile, Project
+from app.schema.static import Hobby, Profile, Project
 
 
 async def test_get_profile(client: AsyncClient):
@@ -32,6 +32,21 @@ async def test_get_projects(client: AsyncClient):
 
     for project in projects:
         Project.model_validate(project)
+
+
+async def test_get_hobbies(client: AsyncClient):
+    response = await client.get("/api/hobbies")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    hobbies = response.json()
+
+    assert isinstance(hobbies, list)
+    assert len(hobbies) > 0
+
+    for hobby in hobbies:
+        Hobby.model_validate(hobby)
 
 
 async def test_get_project_by_slug(client: AsyncClient):

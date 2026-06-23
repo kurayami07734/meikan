@@ -72,3 +72,17 @@ class Project(BaseModel):
 
 
 ProjectsResponse = list[Project]
+
+
+class Hobby(BaseModel):
+    slug: str
+    name: str
+    summary: str
+    highlights: list[str]
+
+
+class Social(BaseModel):
+    label: str
+    url: HttpUrl
+    username: str
+    category: str
