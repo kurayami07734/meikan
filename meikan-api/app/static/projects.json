@@ -1,0 +1,299 @@
+[
+    {
+        "slug": "utabridge",
+        "title": "Utabridge",
+        "subtitle": "Near-production prototype for language-assisted music discovery",
+        "type": "personal",
+        "status": "near-production prototype",
+        "featured": true,
+        "visibility": "public",
+        "summary": "Utabridge was a browser-extension-driven product prototype for helping listeners understand Japanese music more easily. It paired a Spring Boot backend with a React extension experience and reached a near-production stage, but was not publicly launched.",
+        "problem": "Japanese songs often require jumping between music platforms, lyrics sites, translations, and language references. The experience is fragmented for listeners who want both the song and its meaning in context.",
+        "solution": "Built a product prototype around a browser extension interface backed by a Spring Boot API, with the goal of bridging song context, lyrics, and language support directly into the listening flow.",
+        "impact": [
+            "Reached a near-production prototype stage",
+            "Explored a real product workflow around browser extensions, backend APIs, and user-facing language tooling",
+            "Helped clarify the complexity of shipping browser-extension products beyond the core implementation"
+        ],
+        "tech_stack": ["Spring Boot", "React", "Browser Extension"],
+        "links": [],
+        "tags": [
+            "personal",
+            "product",
+            "spring-boot",
+            "react",
+            "browser-extension",
+            "music",
+            "language"
+        ]
+    },
+    {
+        "slug": "aarohan-download-fix-extension",
+        "title": "Aarohan Download Fix Extension",
+        "subtitle": "Browser extension to fix download issues in the Aarohan portal",
+        "type": "personal",
+        "status": "completed",
+        "featured": true,
+        "visibility": "public",
+        "summary": "A practical browser extension built to fix download issues in the Aarohan portal. The project focused on solving a specific real-world annoyance with a lightweight extension rather than building a large standalone app.",
+        "problem": "The Aarohan portal had a broken or inconvenient download flow that made accessing files more painful than it needed to be.",
+        "solution": "Built a browser extension using WXT and React to improve the download behavior and smooth out the user flow.",
+        "impact": [
+            "Solved a concrete usability issue with a small targeted tool",
+            "Used a modern browser extension stack with WXT and React",
+            "Demonstrated practical problem-solving outside of traditional CRUD app projects"
+        ],
+        "tech_stack": ["WXT", "React", "TypeScript", "Browser Extension"],
+        "links": [
+            {
+                "label": "GitHub",
+                "url": "https://github.com/kurayami07734/aarohan-download"
+            }
+        ],
+        "tags": [
+            "personal",
+            "browser-extension",
+            "wxt",
+            "react",
+            "typescript",
+            "automation",
+            "utility"
+        ]
+    },
+    {
+        "slug": "dock-command-authority",
+        "title": "Dock Command Authority",
+        "subtitle": "Distributed locking for safe multi-user drone command control",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": true,
+        "visibility": "case-study",
+        "summary": "Designed and implemented Redis-based command authority controls for DJI Dock operations to ensure only one user could actively control a drone during livestream sessions.",
+        "problem": "Multiple users could view drone livestreams, but command control needed to be exclusive. Without explicit authority management, overlapping user actions could create conflicting drone commands and unsafe operational behavior.",
+        "solution": "Implemented a Redis-backed distributed locking mechanism to grant exclusive command authority to one active controller while allowing other users to remain viewers.",
+        "impact": [
+            "Prevented conflicting drone commands during multi-user sessions",
+            "Enabled safer remote drone operations",
+            "Introduced a clear authority model for livestream-based control flows"
+        ],
+        "tech_stack": [
+            "Python",
+            "Django",
+            "Redis",
+            "DJI Dock APIs",
+            "WebSockets"
+        ],
+        "links": [],
+        "tags": [
+            "professional",
+            "backend",
+            "distributed-systems",
+            "redis",
+            "locking",
+            "drone-operations",
+            "realtime"
+        ]
+    },
+    {
+        "slug": "mqtt-event-bus",
+        "title": "MQTT Event Bus",
+        "subtitle": "Command response routing layer for DJI Dock MQTT workflows",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": true,
+        "visibility": "case-study",
+        "summary": "Built an event bus abstraction over MQTT command handling to route responses correctly despite the underlying MQTT client allowing only a single callback handler per topic.",
+        "problem": "The MQTT client library allowed only one handler for a topic, which created a bottleneck for command-response workflows. Different dock commands could interfere with each other, causing incorrect pending states and unreliable command feedback.",
+        "solution": "Designed an internal event bus that multiplexed topic callbacks and routed command responses back to the correct waiting workflow.",
+        "impact": [
+            "Eliminated incorrect or stuck command states",
+            "Allowed multiple dock command workflows to safely share MQTT topics",
+            "Improved reliability of remote command execution and response tracking"
+        ],
+        "tech_stack": ["Python", "MQTT", "Django", "Redis", "DJI Dock APIs"],
+        "links": [],
+        "tags": [
+            "professional",
+            "backend",
+            "mqtt",
+            "event-bus",
+            "async-workflows",
+            "drone-operations"
+        ]
+    },
+    {
+        "slug": "map-rendering-optimization",
+        "title": "Map Rendering Optimization",
+        "subtitle": "Reduced geospatial layer loading from minutes to seconds",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": true,
+        "visibility": "case-study",
+        "summary": "Optimized a slow geospatial map rendering workflow by parallelizing vector contour fetches and removing main-thread blocking behavior.",
+        "problem": "Rendering map layers required thousands of sequential vector contour requests, causing load times of more than five minutes and blocking the user interface.",
+        "solution": "Parallelized the vector contour fetching workflow and reworked the loading behavior so the map could become usable much faster.",
+        "impact": [
+            "Reduced map loading time from 5+ minutes to roughly 5–10 seconds",
+            "Improved rendering performance by around 50x",
+            "Removed major UI blocking during heavy geospatial layer loading"
+        ],
+        "tech_stack": ["JavaScript", "Vue", "Mapbox", "GeoJSON", "REST APIs"],
+        "links": [],
+        "tags": [
+            "professional",
+            "frontend",
+            "performance",
+            "maps",
+            "geospatial",
+            "optimization"
+        ]
+    },
+    {
+        "slug": "geospatial-ml-annotation-tooling",
+        "title": "Geospatial ML Annotation Tooling",
+        "subtitle": "Self-serve raster annotation workflow for object detection models",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": true,
+        "visibility": "case-study",
+        "summary": "Built tooling that allowed customers to annotate raster data and trigger geospatial ML workflows for object detection use cases.",
+        "problem": "Model customization requests required manual annotation and engineering involvement, creating a slow repetitive workflow that could take weeks before customers saw usable results.",
+        "solution": "Built a Mapbox/GeoJSON-based annotation interface and connected it to a pipeline that could fine-tune object detection models and run inference on customer-provided data.",
+        "impact": [
+            "Reduced a manual model request workflow from around a month to a much shorter self-serve process",
+            "Enabled customers to annotate rasters and define classes themselves",
+            "Reduced repetitive internal effort for geospatial ML customization requests"
+        ],
+        "tech_stack": [
+            "Vue",
+            "Mapbox",
+            "GeoJSON",
+            "Python",
+            "Object Detection"
+        ],
+        "links": [],
+        "tags": [
+            "professional",
+            "geospatial",
+            "machine-learning",
+            "annotation",
+            "mapbox",
+            "frontend",
+            "product-tooling"
+        ]
+    },
+    {
+        "slug": "chargebee-billing-integration",
+        "title": "Chargebee Billing Integration",
+        "subtitle": "Self-serve subscription and payment workflows for enterprise SaaS",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": false,
+        "visibility": "case-study",
+        "summary": "Integrated Chargebee to support self-serve subscriptions, payments, webhooks, and internal custom-plan management.",
+        "problem": "Subscription and billing workflows depended heavily on manual setup. Custom plans required internal database changes or migration-style interventions, which made billing operations slow and error-prone.",
+        "solution": "Integrated Chargebee billing flows, handled webhook-driven subscription state changes, and built internal tooling for managing custom plans without direct database edits.",
+        "impact": [
+            "Enabled self-serve subscription and payment workflows",
+            "Reduced manual billing operations",
+            "Removed the need for direct database edits for custom plan setup"
+        ],
+        "tech_stack": [
+            "Python",
+            "Django",
+            "Chargebee",
+            "Webhooks",
+            "PostgreSQL"
+        ],
+        "links": [],
+        "tags": [
+            "professional",
+            "backend",
+            "payments",
+            "billing",
+            "webhooks",
+            "saas"
+        ]
+    },
+    {
+        "slug": "custom-authentication",
+        "title": "Custom Authentication System",
+        "subtitle": "JWT-based login flow to remove enterprise Google URL dependency",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": false,
+        "visibility": "case-study",
+        "summary": "Implemented a custom authentication flow with self-issued JWTs and phone/email login support to reduce onboarding friction for enterprise users.",
+        "problem": "The existing authentication flow depended on enterprise Google URL behavior and firewall whitelisting, which created onboarding friction for some users.",
+        "solution": "Introduced a custom JWT-based authentication layer with phone and email login support, reducing dependency on enterprise-specific Google access flows.",
+        "impact": [
+            "Reduced onboarding friction for enterprise users",
+            "Removed firewall whitelisting steps tied to the previous auth flow",
+            "Expanded supported login options with phone and email authentication"
+        ],
+        "tech_stack": ["Python", "Django", "JWT", "PostgreSQL"],
+        "links": [],
+        "tags": ["professional", "backend", "authentication", "jwt", "identity"]
+    },
+    {
+        "slug": "graphql-to-rest-migration",
+        "title": "GraphQL to REST Migration",
+        "subtitle": "Migrated backend APIs from GraphQL to Django REST Framework",
+        "type": "professional_case_study",
+        "status": "shipped",
+        "featured": false,
+        "visibility": "case-study",
+        "summary": "Migrated GraphQL APIs to Django REST Framework to improve maintainability, reduce dependency risk, and simplify backend development workflows.",
+        "problem": "The existing GraphQL layer introduced maintenance overhead and dependency risk, especially around Graphene and related ecosystem constraints.",
+        "solution": "Rebuilt key API surfaces using Django REST Framework, replacing GraphQL endpoints with typed REST API implementations.",
+        "impact": [
+            "Improved backend maintainability",
+            "Reduced dependency risk around GraphQL tooling",
+            "Simplified API development and debugging workflows"
+        ],
+        "tech_stack": [
+            "Python",
+            "Django",
+            "Django REST Framework",
+            "GraphQL",
+            "PostgreSQL"
+        ],
+        "links": [],
+        "tags": [
+            "professional",
+            "backend",
+            "api-design",
+            "django",
+            "drf",
+            "migration"
+        ]
+    },
+    {
+        "slug": "cardgen",
+        "title": "CardGen",
+        "subtitle": "Early full-stack design tool built during internship",
+        "type": "archived",
+        "status": "archived",
+        "featured": false,
+        "visibility": "public",
+        "summary": "An early Canva-like card design tool built during an internship. It is kept as an archived project because it reflects older experience and is not representative of current engineering ability.",
+        "problem": "Users needed a lightweight interface for creating simple card-style designs.",
+        "solution": "Built a web-based design tool with a Svelte frontend and Firebase backend during an internship project.",
+        "impact": [
+            "Delivered an early full-stack application as part of internship work",
+            "Practiced product UI design, frontend implementation, and Firebase-backed persistence"
+        ],
+        "tech_stack": ["Svelte", "Firebase"],
+        "links": [
+            {
+                "label": "GitHub",
+                "url": "https://github.com/kurayami07734/card-gen"
+            },
+            {
+                "label": "GitHub v2",
+                "url": "https://github.com/kurayami07734/card-gen-v2"
+            }
+        ],
+        "tags": ["archived", "internship", "svelte", "firebase", "full-stack"]
+    }
+]

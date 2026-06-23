@@ -1,0 +1,79 @@
+from httpx import AsyncClient
+
+from app.schema.static import Hobby, Profile, Project, Social
+
+
+async def test_get_profile(client: AsyncClient):
+    response = await client.get("/api/profile")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    Profile.model_validate(response.json())
+
+
+async def test_get_project_by_unknown_slug_returns_404(client: AsyncClient):
+    response = await client.get("/api/projects/does-not-exist")
+
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Project not found"}
+
+
+async def test_get_projects(client: AsyncClient):
+    response = await client.get("/api/projects")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    projects = response.json()
+
+    assert isinstance(projects, list)
+    assert len(projects) > 0
+
+    for project in projects:
+        Project.model_validate(project)
+
+
+async def test_get_hobbies(client: AsyncClient):
+    response = await client.get("/api/hobbies")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    hobbies = response.json()
+
+    assert isinstance(hobbies, list)
+    assert len(hobbies) > 0
+
+    for hobby in hobbies:
+        Hobby.model_validate(hobby)
+
+
+async def test_get_socials(client: AsyncClient):
+    response = await client.get("/api/socials")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    socials = response.json()
+
+    assert isinstance(socials, list)
+    assert len(socials) > 0
+
+    for social in socials:
+        Social.model_validate(social)
+
+
+async def test_get_project_by_slug(client: AsyncClient):
+    projects_response = await client.get("/api/projects")
+    projects = projects_response.json()
+    slug = projects[0]["slug"]
+
+    response = await client.get(f"/api/projects/{slug}")
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "public, max-age=43200"
+
+    project = Project.model_validate(response.json())
+
+    assert project.slug == slug

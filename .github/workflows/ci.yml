@@ -1,0 +1,79 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        defaults:
+            run:
+                working-directory: meikan-api
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup uv
+              uses: astral-sh/setup-uv@v6
+
+            - name: Setup Python
+              run: uv python install
+
+            - name: Install dependencies
+              run: uv sync --dev
+
+            - name: Ruff Lint
+              run: uv run ruff check .
+
+    format:
+        needs: lint
+        runs-on: ubuntu-latest
+
+        defaults:
+            run:
+                working-directory: meikan-api
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup uv
+              uses: astral-sh/setup-uv@v6
+
+            - name: Setup Python
+              run: uv python install
+
+            - name: Install dependencies
+              run: uv sync --dev
+
+            - name: Ruff Format Check
+              run: uv run ruff format --check .
+
+    tests:
+        needs: format
+        runs-on: ubuntu-latest
+
+        defaults:
+            run:
+                working-directory: meikan-api
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup uv
+              uses: astral-sh/setup-uv@v6
+
+            - name: Setup Python
+              run: uv python install
+
+            - name: Install dependencies
+              run: uv sync --dev
+
+            - name: Run Tests
+              run: uv run pytest -v

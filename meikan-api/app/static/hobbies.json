@@ -1,0 +1,32 @@
+[
+    {
+        "slug": "gym",
+        "name": "Gym",
+        "summary": "Strength training focused on consistency, progressive overload, and long-term fitness.",
+        "highlights": [
+            "Follows structured resistance training",
+            "Interested in squat, bench, and deadlift progression",
+            "Uses fitness as a long-term discipline"
+        ]
+    },
+    {
+        "slug": "speedcubing",
+        "name": "Speedcubing",
+        "summary": "Competitive-style cubing with a focus on solving efficiency and pattern recognition.",
+        "highlights": [
+            "National rank under 100 in standard 3x3",
+            "Enjoys improving solve times through deliberate practice",
+            "Strong interest in puzzles and optimization"
+        ]
+    },
+    {
+        "slug": "media",
+        "name": "Media",
+        "summary": "Enjoys anime, manga, games, and low-pressure media for unwinding.",
+        "highlights": [
+            "Reads slice-of-life manga",
+            "Enjoys single-player games",
+            "Likes stories with strong atmosphere and character focus"
+        ]
+    }
+]
